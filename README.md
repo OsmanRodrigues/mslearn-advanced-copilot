@@ -4,12 +4,54 @@
 Discover new ways to leverage advanced GitHub Copilot techniques within a Python repository to implement an interactive HTML form and an Application Programming Interface (API) endpoint. 
 Gain more practical experience by using this repository that contains a Python Web Application that hosts a Travel Weather API.
 
+
 [![Powered by Awesome Copilot](https://img.shields.io/badge/Powered_by-Awesome_Copilot-blue?logo=githubcopilot)](https://aka.ms/awesome-github-copilot)
 
 ## Requirements
 
 1. Enable your [GitHub Copilot service](https://github.com/github-copilot/signup)
 1. Open [this repository with Codespaces](https://codespaces.new/MicrosoftDocs/mslearn-copilot-codespaces-python)
+
+# Running the Project
+
+## Prerequisites
+
+- Python 3.8 or newer
+- [pip](https://pip.pypa.io/en/stable/installation/)
+- (Optional) [virtualenv](https://virtualenv.pypa.io/en/latest/) for isolated environments
+
+## Setup
+
+1. Install dependencies:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+2. (Optional) Run tests to verify setup:
+    ```sh
+    pytest
+    ```
+
+## Running the API
+
+Start the FastAPI server:
+```sh
+uvicorn main:app --reload
+```
+The API will be available at [http://localhost:8000](http://localhost:8000).
+API documentation is available at [http://localhost:8000/docs](http://localhost:8000/docs).
+
+## Project Structure
+
+- `main.py`: FastAPI application source
+- `test_main.py`: Unit tests for API endpoints
+- `weather.json`: Historical weather data
+- `.well-known/openapi.json`: Generated OpenAPI schema
+
+## Additional Notes
+
+- To regenerate the OpenAPI schema, restart the server.
+- For development, use the `--reload` flag with `uvicorn` for auto-reload on code changes.
 
 ## 💪🏽 Exercise
 The current API is not exposing country/{country} which needs to be implemented to list cities. The route should allow only GET HTTP requests with a JSON response providing information from the historical high and low for that country, city, and given month.
